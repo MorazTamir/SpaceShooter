@@ -24,33 +24,14 @@ public class PlayerMovement : MonoBehaviour
     void Update()
     {
         //move with key pressed
-       
-        //rb.velocity = movement;
-
         //bounds
         bounds();
-        // if (transform.position.y >= 2)
-        // {
-        //     transform.position = new Vector3(transform.position.x, 4.5f, 0);
-        // }
-        // else if(transform.position.y <= -4.3f)
-        // {
-        //     transform.position = new Vector3(transform.position.x, -4.5f, 0);
-        // }
-         // Vector3 newPos = transform.position + new Vector3(movement.x, movement.y, 0) * Time.deltaTime;
-         // newPos.x = Mathf.Clamp(newPos.x, Camera.main.ViewportToWorldPoint(new Vector3(0, 0, 0)).x,
-         //                       Camera.main.ViewportToWorldPoint(new Vector3(1, 0, 0)).x);
-         // newPos.y = Mathf.Clamp(newPos.y, Camera.main.ViewportToWorldPoint(new Vector3(0, 0, 0)).y,
-         //                       Camera.main.ViewportToWorldPoint(new Vector3(0, 1, 0)).y);
-         // transform.position = newPos;
-
         
         //rotation with mouse
         Vector2 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
         Vector2 direction = mousePos - rb.position;
         float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
         rb.rotation = angle-90;
-
     }
 
     private void FixedUpdate()
