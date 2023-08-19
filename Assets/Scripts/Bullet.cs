@@ -5,10 +5,10 @@ using UnityEngine;
 public class Bullet : MonoBehaviour
 {
     // Speed of the bullet
-    public float speed = 250.0f;
+    public float speed = 7.0f;
 
     // Time the bullet will exist
-    public float lifeTime = 10.0f; // Add the semicolon here
+    public float lifeTime = 4.0f; // Add the semicolon here
 
     private Rigidbody2D rd;
     private Vector3 previousPosition;
@@ -16,6 +16,7 @@ public class Bullet : MonoBehaviour
     void Start()
     {
         previousPosition = transform.position;
+        Destroy(gameObject, lifeTime);
     }
 
     void Update()
@@ -28,6 +29,8 @@ public class Bullet : MonoBehaviour
         }
 
         previousPosition = currentPosition;
+        transform.Translate(Vector3.up * speed * Time.deltaTime);
+
     }
     
     private void Awake()
@@ -40,5 +43,13 @@ public class Bullet : MonoBehaviour
     {
         rd.AddForce(direction * this.speed);
         Destroy(this.gameObject, this.lifeTime);
+    }
+
+     private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.CompareTag("Bounds"))
+        {
+            Destroy(gameObject);
+        }
     }
 }
