@@ -1503,7 +1503,7 @@ GameObject:
   - component: {fileID: 1818048864}
   m_Layer: 0
   m_Name: playerShip
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1654,6 +1654,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 51fbcac80e761aa4aaad08a66bba42bf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  bulletPrefab: {fileID: 0}
   moveSpeed: 5
   rotationSpeed: 5
   minX: 0
